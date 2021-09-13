@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="visualp1.css">
+    <title>listmoney</title>
+</head>
+<body>
+    <header>
+        <div id="logo">
+        listmoney
+    </div>
+
+    <ul>
+        <li id="Lis">O que é listmoney?</li>
+        <li id="divisão">/</li>
+       <a href="Untitled-2.html"> <li onClick="clique()"> Login </li> </a> 
+    </ul>
+    </header>
+    <div>
+        <h1>listmoney</h1>
+        <p>Educação financeira na pratica.</p>
+        <img id="mascote" src="masc/front.png" width="400">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+    var meulogo = window.document.getElementById('logo')
+    const queryString = location.search.substring(1)
+    function clique(){ 
+        teste(queryString)
+}
+    function teste(usuario){ console.log('teste')
+    axios.get(`http://localhost:3000/teste?${usuario}`)
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+    meulogo.innerText = response.data
+    
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+    }
+    </script>
+
+</body>
+</html>
